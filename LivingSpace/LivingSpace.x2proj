@@ -27,7 +27,34 @@
     <Content Include="Config\XComEngine.ini" />
     <Content Include="Config\XComGame.ini" />
     <Content Include="Localization\LivingSpace.int" />
+    <Content Include="Src\extra_globals.uci">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\LSEventListener.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\LSEventListener_UI.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\LSHelpers.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\LS_DataStructures.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\UIAlert_LivingSpace.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\UIUtilities_LS.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\LivingSpace\Classes\X2DownloadableContentInfo_LivingSpace.uc" />
+    <Content Include="Src\LivingSpace\Classes\X2StrategyElement_LSFacilityUpgrades.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LivingSpace\Classes\XComGameState_LivingSpaceData.uc">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
   <!-- The weird stuff below (until Target) is required or otherwise ModBuddy project breaks ¯\_(ツ)_/¯ P.S. Also don't try to make it more sane -->
   <PropertyGroup>

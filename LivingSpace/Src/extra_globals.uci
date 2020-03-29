@@ -1,0 +1,18 @@
+// Log helpers
+
+//`define PA_Trace(msg) `Log(`msg, !class'X2DownloadableContentInfo_PrototypeArmoury'.default.SuppressTraceLogs, 'PrototypeArmoury_Trace')
+
+`define LS_Log(msg) `Log(`msg,, 'LivingSpace')
+
+//`define PA_Warn(msg, bLog, bRedScreen) class'PAHelpers'.static.LogWarn(`msg, true, `bLog, `bRedScreen)
+//`define PA_WarnNoStack(msg, bLog, bRedScreen) class'PAHelpers'.static.LogWarn(`msg, false, `bLog, `bRedScreen)
+
+// Easy consts/singletons
+
+`define LS_DEFAULT_EVENT_PRIORITY class'LS_DataStructures'.const.DEFAULT_EVENT_PRIORITY
+`define LSDATA class'XComGameState_LivingSpaceData'.static.GetSingleton()
+
+// Gamestate management helpers
+
+`define SubmitGameState(state) `XCOMGAME.GameRuleset.SubmitGameState(`state);
+`define CleanupGameState(state) `XCOMHISTORY.CleanupPendingGameState(`state);

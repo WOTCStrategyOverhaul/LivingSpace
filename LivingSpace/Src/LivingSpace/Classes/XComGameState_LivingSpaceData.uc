@@ -21,7 +21,7 @@ static function XComGameState_LivingSpaceData CreateSingleton (optional XComGame
 	local XComGameState_LivingSpaceData Data;
 
 	// Do not create if already exists
-	if (GetInfo(true) != none) return none;
+	if (GetSingleton(true) != none) return none;
 
 	if (NewGameState != none)
 	{
@@ -38,10 +38,10 @@ static function XComGameState_LivingSpaceData CreateSingleton (optional XComGame
 
 function InitNewCampaign ()
 {
-	CurrentCrewLimit = class'X2Helper_Infiltration'.default.STARTING_CREW_LIMIT;
+	CurrentCrewLimit = class'LSHelpers'.default.STARTING_CREW_LIMIT;
 }
 
 function InitExistingCampaign ()
 {
-	CurrentCrewLimit = class'X2Helper_Infiltration'.default.STARTING_CREW_LIMIT;
+	CurrentCrewLimit = class'LSHelpers'.default.STARTING_CREW_LIMIT;
 }

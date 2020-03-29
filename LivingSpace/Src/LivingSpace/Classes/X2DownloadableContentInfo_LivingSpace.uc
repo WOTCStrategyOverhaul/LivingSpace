@@ -14,7 +14,6 @@ static event OnLoadedSavedGame ()
 	class'XComGameState_LivingSpaceData'.static.CreateSingleton().InitExistingCampaign();
 }
 
-
 ////////////////////////////
 /// Mission start/finish ///
 ////////////////////////////
@@ -31,7 +30,7 @@ static protected function TriggerCrewOverLimitWarning ()
 	local int CurrentCrewSize;
 	local bool bShow;
 
-	LSData = class'XComGameState_LivingSpaceData'.static.GetSingleton();
+	LSData = `LSDATA;
 	CurrentCrewSize = class'LSHelpers'.static.GetCurrentCrewSize();
 
 	if (CurrentCrewSize <= LSData.CurrentCrewLimit)
@@ -69,7 +68,7 @@ static protected function TriggerCrewOverLimitWarning ()
 
 	if (bShow)
 	{
-		class'UIUtilities_Infiltration'.static.ShowCrewOverflowPopup();
+		class'UIUtilities_LS'.static.ShowCrewOverflowPopup();
 	}
 }
 
@@ -81,7 +80,7 @@ static function bool DisplayQueuedDynamicPopup (DynamicPropertySet PropertySet)
 {
 	if (PropertySet.PrimaryRoutingKey == 'UIAlert_LivingSpace')
 	{
-		CallUIAlert_CovertInfiltration(PropertySet);
+		CallUIAlert_LivingSpace(PropertySet);
 		return true;
 	}
 
@@ -112,8 +111,7 @@ exec function SetCurrentCrewLimit (int NewCurrentCrewLimit)
 	local XComGameState NewGameState;
 
 	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("CHEAT: SetCurrentCrewLimit");
-	LSData = class'XComGameState_LivingSpaceData'.static.GetSingleton();
-	LSData = XComGameState_LivingSpaceData(NewGameState.ModifyStateObject(class'XComGameState_LivingSpaceData', LSData.ObjectID));
+	LSData = XComGameState_LivingSpaceData(NewGameState.ModifyStateObject(class'XComGameState_LivingSpaceData', `LSDATA.ObjectID));
 	LSData.CurrentCrewLimit = NewCurrentCrewLimit;
 	`SubmitGameState(NewGameState);
 }
