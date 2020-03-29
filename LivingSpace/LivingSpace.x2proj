@@ -21,6 +21,12 @@
     <Folder Include="Src\LivingSpace\Classes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\LivingSpace.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComUI.ini">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Localization\XComGame.int">
       <SubType>Content</SubType>
     </Content>
