@@ -5,13 +5,20 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "LivingSpace", "LivingSpace\LivingSpace.x2proj", "{E229DDA7-96EB-4803-8A6C-30EE71499386}"
 EndProject
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "X2WOTCCommunityHighlander", "X2WOTCCommunityHighlander\X2WOTCCommunityHighlander\X2WOTCCommunityHighlander.x2proj", "{D8026E40-05DA-4006-8708-C36137E37D8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|XCOM 2 = Debug|XCOM 2
 		Default|XCOM 2 = Default|XCOM 2
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E229DDA7-96EB-4803-8A6C-30EE71499386}.Debug|XCOM 2.ActiveCfg = Debug|XCOM 2
+		{E229DDA7-96EB-4803-8A6C-30EE71499386}.Debug|XCOM 2.Build.0 = Debug|XCOM 2
 		{E229DDA7-96EB-4803-8A6C-30EE71499386}.Default|XCOM 2.ActiveCfg = Default|XCOM 2
 		{E229DDA7-96EB-4803-8A6C-30EE71499386}.Default|XCOM 2.Build.0 = Default|XCOM 2
+		{D8026E40-05DA-4006-8708-C36137E37D8B}.Debug|XCOM 2.ActiveCfg = Debug|XCOM 2
+		{D8026E40-05DA-4006-8708-C36137E37D8B}.Default|XCOM 2.ActiveCfg = Default|XCOM 2
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
