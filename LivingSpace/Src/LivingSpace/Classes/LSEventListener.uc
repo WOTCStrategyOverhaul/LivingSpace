@@ -19,7 +19,7 @@ static function CHEventListenerTemplate CreateStrategyListeners ()
 {
 	local CHEventListenerTemplate Template;
 
-	`CREATE_X2TEMPLATE(class'CHEventListenerTemplate', Template, 'PrototypeArmoury_Strategy');
+	`CREATE_X2TEMPLATE(class'CHEventListenerTemplate', Template, 'LivingSpace_Strategy');
 	Template.AddCHEvent('WillRecoveryTimeModifier', WillRecoveryTimeModifier, ELD_Immediate, `LS_DEFAULT_EVENT_PRIORITY);
 	Template.RegisterInStrategy = true;
 
