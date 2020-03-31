@@ -1,0 +1,13 @@
+// Log helpers
+
+`define LS_Log(msg) `Log(`msg,, 'LivingSpace')
+
+// Easy consts/singletons
+
+`define LS_DEFAULT_EVENT_PRIORITY class'LS_DataStructures'.const.DEFAULT_EVENT_PRIORITY
+`define LSDATA class'XComGameState_LivingSpaceData'.static.GetSingleton()
+
+// Gamestate management helpers
+
+`define SubmitGameState(state) `XCOMGAME.GameRuleset.SubmitGameState(`state);
+`define CleanupGameState(state) `XCOMHISTORY.CleanupPendingGameState(`state);
