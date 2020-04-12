@@ -21,7 +21,7 @@
     <Folder Include="Src\LivingSpace\Classes\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\LivingSpace.ini">
+    <Content Include="Config\XComLivingSpace.ini">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Config\XComUI.ini">
