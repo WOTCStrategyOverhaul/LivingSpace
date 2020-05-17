@@ -63,6 +63,8 @@ static function EventListenerReturn UpdateResources (Object EventData, Object Ev
 		{
 			MessageColor = eUIState_Bad;
 		}
+
+		class'LSHelpers'.static.TriggerCrewCountChangedEvent();
 		
 		AvengerHUD.AddResource(default.strCrewSizeTitle, class'UIUtilities_Text'.static.GetColoredText(CurrentCrewSize $ "/" $ CurrentCrewLimit, MessageColor));
 		AvengerHUD.ShowResources();

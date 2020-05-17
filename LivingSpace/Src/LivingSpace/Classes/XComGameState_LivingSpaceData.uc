@@ -2,6 +2,7 @@ class XComGameState_LivingSpaceData extends XComGameState_BaseObject;
 
 var int CurrentCrewLimit;
 var int MissionsSinceCrewOverflowShown;
+var int LastKnownCrewCount;
 
 /////////////////
 /// Accessors ///
@@ -39,9 +40,11 @@ static function XComGameState_LivingSpaceData CreateSingleton (optional XComGame
 function InitNewCampaign ()
 {
 	CurrentCrewLimit = class'LSHelpers'.default.STARTING_CREW_LIMIT;
+	LastKnownCrewCount = -1;
 }
 
 function InitExistingCampaign ()
 {
 	CurrentCrewLimit = class'LSHelpers'.default.STARTING_CREW_LIMIT;
+	LastKnownCrewCount = -1;
 }

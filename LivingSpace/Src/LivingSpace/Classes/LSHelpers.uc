@@ -38,3 +38,23 @@ static function int GetNumberOfHumanSoldiers ()
 
 	return iSoldiers;
 }
+
+static function TriggerCrewCountChangedEvent ()
+{
+	local XComGameState_LivingSpaceData LSData;
+	local int CurrentCrewSize;
+
+	LSData = `LSDATA;
+	CurrentCrewSize = GetCurrentCrewSize();
+
+	// If this is the player's first time seeing the crew count, don't trigger the event
+	if (LSData.LastKnownCrewCount == -1)
+	{
+		LSData.LastKnownCrewCount = CurrentCrewSize;
+	}
+	else if (LSData.LastKnownCrewCount != CurrentCrewSize)
+	{
+		LSData.LastKnownCrewCount = CurrentCrewSize;
+		`XEVENTMGR.TriggerEvent('CrewCountChanged');
+	}
+}
