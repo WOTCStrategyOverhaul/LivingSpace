@@ -14,6 +14,29 @@ static event OnLoadedSavedGame ()
 	class'XComGameState_LivingSpaceData'.static.CreateSingleton().InitExistingCampaign();
 }
 
+static function OnLoadedSavedGameWithDLCExisting ()
+{
+	local XComGameState_LivingSpaceData LSData;
+	local XComGameState NewGameState;
+
+	LSData = `LSDATA;
+
+	// Do nothing if we are adding the mod to an existing campaign (why is this called???) or if we already updated the state
+	if (LSData == none || LSData.ModVersion >= class'XComGameState_LivingSpaceData'.const.CURRENT_MOD_VERSION) return;
+
+	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Updating LS state from" @ LSData.ModVersion @ "to" @ class'XComGameState_LivingSpaceData'.const.CURRENT_MOD_VERSION);
+
+	// State fix-up changes go here
+	`LS_Log("OnLoadedSavedGameWithDLCExisting running");
+
+	// Save that the state was updated.
+	// Do this last, so that the state update code can access the previous version
+	LSData = XComGameState_LivingSpaceData(NewGameState.ModifyStateObject(class'XComGameState_LivingSpaceData', LSData.ObjectID));
+	LSData.ModVersion = class'XComGameState_LivingSpaceData'.const.CURRENT_MOD_VERSION;
+
+	`XCOMHISTORY.AddGameStateToHistory(NewGameState);
+}
+
 ////////////////////////////
 /// Mission start/finish ///
 ////////////////////////////

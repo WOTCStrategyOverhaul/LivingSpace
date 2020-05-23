@@ -3,6 +3,23 @@ class XComGameState_LivingSpaceData extends XComGameState_BaseObject;
 var int CurrentCrewLimit;
 var int MissionsSinceCrewOverflowShown;
 
+///////////////////
+/// Mod version ///
+///////////////////
+
+// Encoding scheme: 00000000
+//                  0        - beta (0) or workshop (1)
+//                   00      - release number (eg. beta **2**)
+//                     00000 - patch number
+//
+// This allows to easy compare the saved version with integer comparison, eg.
+// if (CurrentVersion > CIInfo.ModVersion) 
+var int ModVersion;
+
+// While we are in the beta phase, keep the release number synced with CI
+// This was split in CI beta 3, so put that as a reference for now
+const CURRENT_MOD_VERSION = 00300000;
+
 /////////////////
 /// Accessors ///
 /////////////////
@@ -39,9 +56,11 @@ static function XComGameState_LivingSpaceData CreateSingleton (optional XComGame
 function InitNewCampaign ()
 {
 	CurrentCrewLimit = class'LSHelpers'.default.STARTING_CREW_LIMIT;
+	ModVersion = CURRENT_MOD_VERSION;
 }
 
 function InitExistingCampaign ()
 {
 	CurrentCrewLimit = class'LSHelpers'.default.STARTING_CREW_LIMIT;
+	ModVersion = CURRENT_MOD_VERSION;
 }
