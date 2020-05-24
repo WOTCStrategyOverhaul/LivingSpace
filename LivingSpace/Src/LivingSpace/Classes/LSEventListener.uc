@@ -21,6 +21,7 @@ static function CHEventListenerTemplate CreateStrategyListeners ()
 
 	`CREATE_X2TEMPLATE(class'CHEventListenerTemplate', Template, 'LivingSpace_Strategy');
 	Template.AddCHEvent('WillRecoveryTimeModifier', WillRecoveryTimeModifier, ELD_Immediate, `LS_DEFAULT_EVENT_PRIORITY);
+	Template.AddCHEvent('HeadquatersUnitFired', HeadquatersUnitFired, ELD_OnStateSubmitted, `LS_DEFAULT_EVENT_PRIORITY);
 	Template.RegisterInStrategy = true;
 
 	return Template;
@@ -52,4 +53,12 @@ static protected function float GetRecoveryTimeModifier ()
 	}
 
 	return 1.0 - ((CurrentCrewSize - CurrentCrewLimit) * default.RECOVERY_PENALTY_PER_SOLDIER);
+}
+
+static protected function EventListenerReturn HeadquatersUnitFired (Object EventData, Object EventSource, XComGameState GameState, Name Event, Object CallbackData)
+{
+	// Force refresh of will recovery projects length
+	`XCOMHQ.HandlePowerOrStaffingChange();
+
+	return ELR_NoInterrupt;
 }

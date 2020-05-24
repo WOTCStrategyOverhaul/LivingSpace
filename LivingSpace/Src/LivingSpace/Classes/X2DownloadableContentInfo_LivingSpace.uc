@@ -41,6 +41,17 @@ static function OnLoadedSavedGameWithDLCExisting ()
 /// Mission start/finish ///
 ////////////////////////////
 
+static event OnPostMission ()
+{
+	// Force refresh of will recovery projects length
+	// This is done automatically for people returning from the mission,
+	// but we also need to do the update for those sitting in the barracks
+	// Example cases:
+	// * Soldier(s) died - less crew, might put us under the cap
+	// * VIP recruited - more crew, might put us over the cap
+	`XCOMHQ.HandlePowerOrStaffingChange();
+}
+
 static event OnExitPostMissionSequence ()
 {
 	TriggerCrewOverLimitWarning();
@@ -130,11 +141,21 @@ static protected function CallUIAlert_LivingSpace (const out DynamicPropertySet 
 
 exec function SetCurrentCrewLimit (int NewCurrentCrewLimit)
 {
+	local XComGameState_HeadquartersXCom XComHQ;
 	local XComGameState_LivingSpaceData LSData;
 	local XComGameState NewGameState;
 
 	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("CHEAT: SetCurrentCrewLimit");
+
 	LSData = XComGameState_LivingSpaceData(NewGameState.ModifyStateObject(class'XComGameState_LivingSpaceData', `LSDATA.ObjectID));
 	LSData.CurrentCrewLimit = NewCurrentCrewLimit;
+	
+	// If we are in strategy, refresh the recovery project speed
+	if (`HQPRES != none)
+	{
+		XComHQ = XComGameState_HeadquartersXCom(NewGameState.ModifyStateObject(class'XComGameState_HeadquartersXCom', `XCOMHQ.ObjectID));
+		XComHQ.HandlePowerOrStaffingChange(NewGameState);
+	}
+	
 	`SubmitGameState(NewGameState);
 }
