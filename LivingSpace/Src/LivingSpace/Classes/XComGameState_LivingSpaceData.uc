@@ -16,9 +16,8 @@ var int MissionsSinceCrewOverflowShown;
 // if (CurrentVersion > CIInfo.ModVersion) 
 var int ModVersion;
 
-// While we are in the beta phase, keep the release number synced with CI
-// This was split in CI beta 3, so put that as a reference for now
-const CURRENT_MOD_VERSION = 00300000;
+// First released version will be beta 1, so put that as a reference for now
+const CURRENT_MOD_VERSION = 00100000;
 
 /////////////////
 /// Accessors ///
