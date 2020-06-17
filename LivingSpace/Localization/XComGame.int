@@ -6,4 +6,4 @@ Summary="Increases crew capacity by 10, allowing more personnel to be maintained
 [LivingQuarters_CrewSizeII X2FacilityUpgradeTemplate]
 DisplayName="Crew Size II"
 FacilityName="Living Quarters"
-Summary="Increases crew capacity by a further 15, allowing even more personnel to be maintained without an increase to recovery times."
+Summary="Increases crew capacity by a further 10, allowing even more personnel to be maintained without an increase to recovery times."
