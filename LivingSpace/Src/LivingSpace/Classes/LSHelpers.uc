@@ -8,10 +8,23 @@ var config(UI) int CREW_WARNING_GAP;
 static function int GetCurrentCrewSize ()
 {
 	local XComGameState_HeadquartersXcom XComHQ;
+	local int Result;
 		
 	XComHQ = `XCOMHQ;
 
-	return GetNumberOfHumanSoldiers() + XComHQ.GetNumberOfScientists() + XComHQ.GetNumberOfEngineers();
+	Result = GetNumberOfHumanSoldiers();
+
+	if (!XComHQ.HasFacilityByName('Laboratory'))
+	{
+		Result += XComHQ.GetNumberOfScientists();
+	}
+	
+	if (!XComHQ.HasFacilityByName('Workshop'))
+	{
+		Result += XComHQ.GetNumberOfEngineers();
+	}
+
+	return Result;
 }
 
 static function int GetNumberOfHumanSoldiers ()
