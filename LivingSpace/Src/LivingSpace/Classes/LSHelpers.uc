@@ -2,6 +2,9 @@ class LSHelpers extends Object abstract config(LivingSpace);
 
 var config int STARTING_CREW_LIMIT;
 
+var config name FACILITY_HOLDS_ENGINEER;
+var config name FACILITY_HOLDS_SCIENTIST;
+
 // How many missions to wait before showing the warning again
 var config(UI) int CREW_WARNING_GAP;
 
@@ -14,12 +17,12 @@ static function int GetCurrentCrewSize ()
 
 	Result = GetNumberOfHumanSoldiers();
 
-	if (!XComHQ.HasFacilityByName('Laboratory'))
+	if (!XComHQ.HasFacilityByName(default.FACILITY_HOLDS_SCIENTIST))
 	{
 		Result += XComHQ.GetNumberOfScientists();
 	}
 	
-	if (!XComHQ.HasFacilityByName('Workshop'))
+	if (!XComHQ.HasFacilityByName(default.FACILITY_HOLDS_ENGINEER))
 	{
 		Result += XComHQ.GetNumberOfEngineers();
 	}

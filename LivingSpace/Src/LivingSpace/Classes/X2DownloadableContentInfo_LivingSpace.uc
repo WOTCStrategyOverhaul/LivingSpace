@@ -159,3 +159,8 @@ exec function SetCurrentCrewLimit (int NewCurrentCrewLimit)
 	
 	`SubmitGameState(NewGameState);
 }
+
+exec function ShowCrewOverflowAlert ()
+{
+	class'UIUtilities_LS'.static.ShowCrewOverflowPopup();
+}

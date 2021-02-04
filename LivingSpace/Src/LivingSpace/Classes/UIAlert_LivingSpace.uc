@@ -3,6 +3,9 @@ class UIAlert_LivingSpace extends UIAlert;
 var localized string strCrewOverflowTitle;
 var localized string strCrewOverflowHeader;
 var localized string strCrewOverflowDescription;
+var localized string strCrewOverflowNoWorkshop;
+var localized string strCrewOverflowNoLaboratory;
+var localized string strCrewOverflowNeitherFacility;
 
 simulated function BuildAlert ()
 {
@@ -50,7 +53,7 @@ simulated protected function BuildCrewOverflow ()
 
 	Info.strTitle = strCrewOverflowTitle;
 	Info.strHeader = strCrewOverflowHeader;
-	Info.strDescription = strCrewOverflowDescription;
+	Info.strDescription = GetCrewOverflowDescription();
 	Info.strImage = "img:///UILibrary_XPACK_StrategyImages.Alert_Avenger_Attacked";
 	Info.strConfirm = m_strOK;
 
@@ -60,4 +63,34 @@ simulated protected function BuildCrewOverflow ()
 simulated protected function CrewOverflowShowLivingRoom ()
 {
 	`HQPRES.CAMLookAtRoom(`XCOMHQ.GetRoom(16), bInstantInterp ? float(0) : `HQINTERPTIME);
+}
+
+simulated protected function string GetCrewOverflowDescription ()
+{
+	local XComGameState_HeadquartersXCom XComHQ;
+	local string Description;
+	local XGParamTag ParamTag;
+
+	ParamTag = XGParamTag(`XEXPANDCONTEXT.FindTag("XGParam"));
+	ParamTag.StrValue0 = string(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER);
+	ParamTag.StrValue1 = string(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST);
+
+	XComHQ = `XCOMHQ;
+	Description = strCrewOverflowDescription;
+	
+	if (!XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER)
+	 && !XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST))
+	{
+		Description = Description $ "\n\n" $ strCrewOverflowNeitherFacility;
+	}
+	else if (!XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST))
+	{
+		Description = Description $ "\n\n" $ strCrewOverflowNoLaboratory;
+	}
+	else if (!XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER))
+	{
+		Description = Description $ "\n\n" $ strCrewOverflowNoWorkshop;
+	}
+
+	return `XEXPAND.ExpandString(Description);
 }
