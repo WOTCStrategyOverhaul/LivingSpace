@@ -72,8 +72,8 @@ simulated protected function string GetCrewOverflowDescription ()
 	local XGParamTag ParamTag;
 
 	ParamTag = XGParamTag(`XEXPANDCONTEXT.FindTag("XGParam"));
-	ParamTag.StrValue0 = string(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER);
-	ParamTag.StrValue1 = string(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST);
+	ParamTag.StrValue0 = GetFacilityName(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER);
+	ParamTag.StrValue1 = GetFacilityName(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST);
 
 	XComHQ = `XCOMHQ;
 	Description = strCrewOverflowDescription;
@@ -93,4 +93,13 @@ simulated protected function string GetCrewOverflowDescription ()
 	}
 
 	return `XEXPAND.ExpandString(Description);
+}
+
+static function string GetFacilityName (name FacilityName)
+{
+	local X2FacilityTemplate FacilityTemplate;
+
+	FacilityTemplate = X2FacilityTemplate(class'X2StrategyElementTemplateManager'.static.GetStrategyElementTemplateManager().FindStrategyElementTemplate(FacilityName));
+
+	return FacilityTemplate.DisplayName;
 }
