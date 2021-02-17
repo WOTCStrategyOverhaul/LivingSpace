@@ -7,9 +7,3 @@ Summary="Increases crew capacity by 10, allowing more personnel to be maintained
 DisplayName="Crew Size II"
 FacilityName="Living Quarters"
 Summary="Increases crew capacity by a further 10, allowing even more personnel to be maintained without an increase to recovery times."
-
-[Laboratory X2FacilityTemplate]
-Summary="The Laboratory prevents Scientists from counting towards the Crew Limit, and increases the chance that a research breakthrough will occur. Scientists can be staffed in laboratories to provide additional assistance to Dr. Tygan, further decreasing the time of all research projects."
-
-[Workshop X2FacilityTemplate]
-Summary="The Workshop prevents Engineers from counting towards the Crew Limit. Engineers can also be staffed in workshops, creating unique GREMLIN drones which can be sent to staff any adjacent room or facility."
