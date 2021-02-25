@@ -71,4 +71,6 @@ static protected function IncreaseCrewSize (XComGameState NewGameState, int Amou
 
 	LSData = XComGameState_LivingSpaceData(NewGameState.ModifyStateObject(class'XComGameState_LivingSpaceData', `LSDATA.ObjectID));
 	LSData.CurrentCrewLimit += Amount;
+	
+	`XEVENTMGR.TriggerEvent('LS_CrewLimitIncreased',,, NewGameState);
 }
