@@ -16,6 +16,7 @@
     <Folder Include="Config\" />
     <Folder Include="Content\" />
     <Folder Include="Localization\" />
+    <Folder Include="Localization\RUS" />
     <Folder Include="Src\" />
     <Folder Include="Src\LivingSpace\" />
     <Folder Include="Src\LivingSpace\Classes\" />
@@ -30,6 +31,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Config\XComUI.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\RUS\LivingSpace.rus">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\RUS\XComGame.rus">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Localization\XComGame.int">

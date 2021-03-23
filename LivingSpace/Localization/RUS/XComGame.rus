@@ -1,0 +1,9 @@
+[LivingQuarters_CrewSizeI X2FacilityUpgradeTemplate]
+DisplayName="Размер Экипажа I"
+FacilityName="Жилые Помещения"
+Summary="Увеличивает вместимость экипажа на 10 человек, что позволяет поддерживать большее количество персонала без увеличения времени восстановления."
+
+[LivingQuarters_CrewSizeII X2FacilityUpgradeTemplate]
+DisplayName="Размер Экипажа II"
+FacilityName="Жилые Помещения"
+Summary="Увеличивает вместимость экипажа на 10 человек, что позволяет поддерживать большее количество персонала без увеличения времени восстановления."
