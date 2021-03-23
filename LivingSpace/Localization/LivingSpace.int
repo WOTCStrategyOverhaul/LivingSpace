@@ -8,3 +8,11 @@ strCrewOverflowDescription="The Avenger is holding more people that we can safel
 strCrewOverflowNoWorkshop="Alternatively we can build a <XGParam:StrValue0> to give separate quarters to our engineers."
 strCrewOverflowNoLaboratory="Alternatively we can build a <XGParam:StrValue1> to give separate quarters to our scientists."
 strCrewOverflowNeitherFacility="Alternatively we can build a <XGParam:StrValue0> or <XGParam:StrValue1> to give separate quarters to our engineers or scientists respectively."
+
+[LivingSpace_MCMScreen]
+ModName="Living Space"
+PageTitle="Living Space"
+UserInterfaceGroupHeader="UI"
+
+bShowCrewCountOnGeoscape_Label="Show crew count on the Geoscape"
+bShowCrewCountOnGeoscape_Tip="Does not enable/disable crew count readout elsewhere"

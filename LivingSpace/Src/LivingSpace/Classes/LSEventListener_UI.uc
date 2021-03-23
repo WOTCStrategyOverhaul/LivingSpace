@@ -4,6 +4,8 @@ var config int MaxOverCrewLimitTillRed;
 
 var localized string strCrewSizeTitle;
 
+`include(LivingSpace\Src\ModConfigMenuAPI\MCM_API_CfgHelpers.uci)
+
 static function array<X2DataTemplate> CreateTemplates()
 {
 	local array<X2DataTemplate> Templates;
@@ -42,7 +44,7 @@ static function EventListenerReturn UpdateResources (Object EventData, Object Ev
 	
 	if (
 		UIFacility_LivingQuarters(CurrentScreen) != none ||
-		UIStrategyMap(CurrentScreen) != none ||
+		(UIStrategyMap(CurrentScreen) != none && `GETMCMVAR(bShowCrewCountOnGeoscape)) ||
 		UIFacilityGrid(CurrentScreen) != none ||
 		UIRecruitSoldiers(CurrentScreen) != none ||
 		(UIChooseUpgrade(CurrentScreen) != none && UIFacility_LivingQuarters(ScreenStack.GetFirstInstanceOf(class'UIFacility_LivingQuarters')) != none)
