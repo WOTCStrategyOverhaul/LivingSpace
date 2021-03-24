@@ -16,8 +16,7 @@ var int MissionsSinceCrewOverflowShown;
 // if (CurrentVersion > CIInfo.ModVersion) 
 var int ModVersion;
 
-// First released version will be beta 1, so put that as a reference for now
-const CURRENT_MOD_VERSION = 00100000;
+const CURRENT_MOD_VERSION = 00100002;
 
 /////////////////
 /// Accessors ///
