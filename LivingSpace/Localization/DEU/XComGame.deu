@@ -1,0 +1,9 @@
+[LivingQuarters_CrewSizeI X2FacilityUpgradeTemplate]
+DisplayName="Mannschaftsgröße I"
+FacilityName="Mannschaftsquartiere"
+Summary="Erhöht die Mannschaftsgröße um 10. Mehr Personal kann nun untergebracht werden ohne dass die Erholungszeiten unserer Soldaten ansteigen."
+
+[LivingQuarters_CrewSizeII X2FacilityUpgradeTemplate]
+DisplayName="Mannschaftsgröße II"
+FacilityName="Mannschaftsquartiere"
+Summary="Erhöht die Mannschaftsgröße um weitere 10. Noch mehr Personal kann nun untergebracht werden ohne dass die Erholungszeiten unserer Soldaten ansteigen."

@@ -1,0 +1,18 @@
+[LSEventListener_UI]
+strCrewSizeTitle="MANNSCHAFT"
+
+[UIAlert_LivingSpace]
+strCrewOverflowTitle=Mannschaftskapazität überschritten
+strCrewOverflowHeader=Mannschaftsquartiere
+strCrewOverflowDescription="Die Avenger transportiert mehr Leute als wir angemessen unterbringen können, und manche unserer Soldaten müssen schon auf dem Boden schlafen. Die Truppenmoral ist am Boden und unsere Leute brauchen entsprechend länger um sich zu erholen. Um dieses Problem zu lösen, sollten wir in Betracht ziehen unsere Mannschaftquartiere (unter dem Commander-Quartier) zu verbessern und damit unsere Mannschaftskapazität zu erhöhen, oder ein paar unnötige Mannschaftsmitglieder zu entlassen."
+strCrewOverflowNoWorkshop="Zudem haben wir auch die Option eine <XGParam:StrValue0>-Einrichtung zu bauen, damit unsere Ingenieure seperate Quartiere bekommen."
+strCrewOverflowNoWorkshop="Zudem haben wir auch die Option eine <XGParam:StrValue1>-Einrichtung zu bauen, damit unsere Wissenschaftler seperate Quartiere bekommen."
+strCrewOverflowNeitherFacility="Zudem haben wir auch die Option eine <XGParam:StrValue0>-Einrichtung oder eine <XGParam:StrValue1>-Einrichtung zu bauen, damit entsprechend unsere Ingenieure oder Wissenschaftler seperate Quartiere bekommen."
+
+[LivingSpace_MCMScreen]
+ModName="Living Space"
+PageTitle="Living Space"
+UserInterfaceGroupHeader="Benutzeroberfläche"
+
+bShowCrewCountOnGeoscape_Label="Mannschaftsgröße auf der Weltkarte anzeigen"
+bShowCrewCountOnGeoscape_Tip="Aktiviert/Deaktiviert nicht die Anzeige der Mannschaftsgröße in anderen Menüs"

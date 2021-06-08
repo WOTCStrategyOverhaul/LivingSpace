@@ -4,7 +4,7 @@ strCrewSizeTitle="CREW"
 [UIAlert_LivingSpace]
 strCrewOverflowTitle=Crew Over Capacity
 strCrewOverflowHeader=Living Quarters
-strCrewOverflowDescription="The Avenger is holding more people that we can safely support, and some of our soldiers are sleeping on the floor. Morale is taking a hit and will recovery times are greater as a result. To resolve this situation, we should consider upgrading the Living Quarters (the room below the Commander's Quarters) to increase the Crew Limit or dismissing some non-essential personnel to lower our crew count."
+strCrewOverflowDescription="The Avenger is holding more people than we can safely support, and some of our soldiers are sleeping on the floor. Morale is taking a hit and will recovery times are greater as a result. To resolve this situation, we should consider upgrading the Living Quarters (the room below the Commander's Quarters) to increase the Crew Limit or dismissing some non-essential personnel to lower our crew count."
 strCrewOverflowNoWorkshop="Alternatively we can build a <XGParam:StrValue0> to give separate quarters to our engineers."
 strCrewOverflowNoLaboratory="Alternatively we can build a <XGParam:StrValue1> to give separate quarters to our scientists."
 strCrewOverflowNeitherFacility="Alternatively we can build a <XGParam:StrValue0> or <XGParam:StrValue1> to give separate quarters to our engineers or scientists respectively."
