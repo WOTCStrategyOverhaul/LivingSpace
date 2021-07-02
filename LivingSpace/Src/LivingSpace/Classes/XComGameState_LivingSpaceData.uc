@@ -16,7 +16,7 @@ var int MissionsSinceCrewOverflowShown;
 // if (CurrentVersion > CIInfo.ModVersion) 
 var int ModVersion;
 
-const CURRENT_MOD_VERSION = 00100003;
+const CURRENT_MOD_VERSION = 00200001; // Since we don't support suffixes, represent 1.0 RC1 as "beta 2.1" (there was/is no beta 2)
 
 /////////////////
 /// Accessors ///
