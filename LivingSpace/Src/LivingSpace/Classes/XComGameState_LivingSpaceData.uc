@@ -16,7 +16,7 @@ var int MissionsSinceCrewOverflowShown;
 // if (CurrentVersion > CIInfo.ModVersion) 
 var int ModVersion;
 
-const CURRENT_MOD_VERSION = 10000000; // 1.0
+const CURRENT_MOD_VERSION = 10000001; // 1.0 patch 1
 
 /////////////////
 /// Accessors ///
