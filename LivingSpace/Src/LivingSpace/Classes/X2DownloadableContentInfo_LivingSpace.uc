@@ -1,5 +1,27 @@
 class X2DownloadableContentInfo_LivingSpace extends X2DownloadableContentInfo;
 
+/////////////////
+/// Templates ///
+/////////////////
+
+static event OnPostTemplatesCreated ()
+{
+	PatchLivingQuarters();
+}
+
+static protected function PatchLivingQuarters ()
+{
+	local X2StrategyElementTemplateManager TemplateManager;
+	local X2FacilityTemplate FacilityTemplate;
+
+	TemplateManager = class'X2StrategyElementTemplateManager'.static.GetStrategyElementTemplateManager();
+	FacilityTemplate = X2FacilityTemplate(TemplateManager.FindStrategyElementTemplate('LivingQuarters'));
+	
+	// add crew size limit upgrades
+	FacilityTemplate.Upgrades.AddItem('LivingQuarters_CrewSizeI');
+	FacilityTemplate.Upgrades.AddItem('LivingQuarters_CrewSizeII');
+}
+
 ///////////////////////
 /// Loaded/new game ///
 ///////////////////////
