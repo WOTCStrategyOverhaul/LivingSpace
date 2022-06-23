@@ -11,7 +11,6 @@ var config(UI) int CREW_WARNING_GAP;
 static function int GetCurrentCrewSize ()
 {
 	local XComGameState_HeadquartersXcom XComHQ;
-	local bool bHasSciFacilities, bHasEngFacilities;
 	local int Result;
 		
 	XComHQ = `XCOMHQ;

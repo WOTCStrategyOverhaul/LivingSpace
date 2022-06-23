@@ -67,7 +67,6 @@ simulated protected function CrewOverflowShowLivingRoom ()
 
 simulated protected function string GetCrewOverflowDescription ()
 {
-	local XComGameState_HeadquartersXCom XComHQ;
 	local string Description, SciFacilities, EngFacilities;
 	local XGParamTag ParamTag;
 
@@ -79,7 +78,6 @@ simulated protected function string GetCrewOverflowDescription ()
 	ParamTag.StrValue0 = EngFacilities;
 	ParamTag.StrValue1 = SciFacilities;
 
-	XComHQ = `XCOMHQ;
 	Description = strCrewOverflowDescription;
 	
 	if (!class'LSHelpers'.static.CheckForFacilityNamesListed(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST)
