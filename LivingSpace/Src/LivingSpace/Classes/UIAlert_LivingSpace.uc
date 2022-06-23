@@ -106,7 +106,7 @@ static function string FormulateFacilityString(array<name> ListOfFacilityNames)
 
 	FacilitiesListed = "";
 
-	for (i = 0 ; i < ListOfFacilityNames.length ; e++)
+	for (i = 0 ; i < ListOfFacilityNames.length ; i++)
 	{
 		FacilitiesListed $= GetFacilityName(ListOfFacilityNames[i]);
 
