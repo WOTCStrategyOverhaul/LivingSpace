@@ -68,31 +68,55 @@ simulated protected function CrewOverflowShowLivingRoom ()
 simulated protected function string GetCrewOverflowDescription ()
 {
 	local XComGameState_HeadquartersXCom XComHQ;
-	local string Description;
+	local string Description, SciFacilities, EngFacilities;
 	local XGParamTag ParamTag;
 
 	ParamTag = XGParamTag(`XEXPANDCONTEXT.FindTag("XGParam"));
-	ParamTag.StrValue0 = GetFacilityName(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER);
-	ParamTag.StrValue1 = GetFacilityName(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST);
+
+	SciFacilities = FormulateFacilityString(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST);
+	EngFacilities = FormulateFacilityString(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER);
+
+	ParamTag.StrValue0 = EngFacilities;
+	ParamTag.StrValue1 = SciFacilities;
 
 	XComHQ = `XCOMHQ;
 	Description = strCrewOverflowDescription;
 	
-	if (!XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER)
-	 && !XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST))
+	if (!class'LSHelpers'.static.CheckForFacilityNamesListed(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST)
+	 && !class'LSHelpers'.static.CheckForFacilityNamesListed(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER))
 	{
 		Description = Description $ "\n\n" $ strCrewOverflowNeitherFacility;
 	}
-	else if (!XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST))
+	else if (!class'LSHelpers'.static.CheckForFacilityNamesListed(class'LSHelpers'.default.FACILITY_HOLDS_SCIENTIST))
 	{
 		Description = Description $ "\n\n" $ strCrewOverflowNoLaboratory;
 	}
-	else if (!XComHQ.HasFacilityByName(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER))
+	else if (!class'LSHelpers'.static.CheckForFacilityNamesListed(class'LSHelpers'.default.FACILITY_HOLDS_ENGINEER))
 	{
 		Description = Description $ "\n\n" $ strCrewOverflowNoWorkshop;
 	}
 
 	return `XEXPAND.ExpandString(Description);
+}
+
+static function string FormulateFacilityString(array<name> ListOfFacilityNames)
+{
+	local string FacilitiesListed;
+	local int i;
+
+	FacilitiesListed = "";
+
+	for (i = 0 ; i < ListOfFacilityNames.length ; e++)
+	{
+		FacilitiesListed $= GetFacilityName(ListOfFacilityNames[i]);
+
+		if (i < ListOfFacilityNames.length-1)
+		{
+			FacilitiesListed $=", ";
+		}
+	}
+
+	return FacilitiesListed;
 }
 
 static function string GetFacilityName (name FacilityName)
