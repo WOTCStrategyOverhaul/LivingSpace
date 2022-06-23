@@ -2,8 +2,8 @@ class LSHelpers extends Object abstract config(LivingSpace);
 
 var config int STARTING_CREW_LIMIT;
 
-var config name FACILITY_HOLDS_ENGINEER;
-var config name FACILITY_HOLDS_SCIENTIST;
+var config array<name> FACILITY_HOLDS_ENGINEER;
+var config array<name> FACILITY_HOLDS_SCIENTIST;
 
 // How many missions to wait before showing the warning again
 var config(UI) int CREW_WARNING_GAP;
@@ -11,18 +11,44 @@ var config(UI) int CREW_WARNING_GAP;
 static function int GetCurrentCrewSize ()
 {
 	local XComGameState_HeadquartersXcom XComHQ;
-	local int Result;
-		
+	local bool bHasSciFacility, bHasEngFacility;
+	local int i, Result;
+	
 	XComHQ = `XCOMHQ;
 
 	Result = GetNumberOfHumanSoldiers();
-
-	if (!XComHQ.HasFacilityByName(default.FACILITY_HOLDS_SCIENTIST))
+	
+	bHasSciFacility = false;
+	bHasEngFacility = false;
+	
+	//check for these facilities
+	for (i = 0 ; i < default.FACILITY_HOLDS_SCIENTIST.length ; i++)
+	{
+		if (XComHQ.HasFacilityByName(default.FACILITY_HOLDS_SCIENTIST[i]))
+		{
+			bHasSciFacility = true;
+			continue;
+		}
+	}
+	
+	//if HQ does not have a facility, add crew
+	if (!bHasSciFacility)
 	{
 		Result += XComHQ.GetNumberOfScientists();
 	}
-	
-	if (!XComHQ.HasFacilityByName(default.FACILITY_HOLDS_ENGINEER))
+
+	//check for these facilities
+	for (i = 0 ; i < default.FACILITY_HOLDS_ENGINEER.length ; i++)
+	{
+		if (XComHQ.HasFacilityByName(default.FACILITY_HOLDS_ENGINEER[i]))
+		{
+			bHasEngFacility = true;
+			continue;
+		}
+	}
+
+	//if HQ does not have a facility, add crew
+	if (!bHasEngFacility)
 	{
 		Result += XComHQ.GetNumberOfEngineers();
 	}
