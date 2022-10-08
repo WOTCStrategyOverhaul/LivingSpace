@@ -102,7 +102,7 @@ static function string FormulateFacilityString(array<name> ListOfFacilityNames)
 	local string FacilitiesListed;
 	local int i;
 
-	FacilitiesListed = "-- ";
+	FacilitiesListed = "";
 
 	for (i = 0 ; i < ListOfFacilityNames.length ; i++)
 	{
